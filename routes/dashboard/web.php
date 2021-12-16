@@ -20,9 +20,11 @@ Route::group(
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){ //...
 
-        Route::prefix('dashboard')->name('dashboard.')->group(function () {
+        Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function () {
             Route::get('/', function () {
                 return view('dashboard.layouts/app');
-            });
+            })->name('home.index');
+
+            Route::resource('users', UserController::class);
         });
     });
