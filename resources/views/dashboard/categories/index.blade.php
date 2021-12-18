@@ -9,7 +9,7 @@
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard.home.index') }}">Home</a></li>
-                <li class="breadcrumb-item active">{{ __('Users') }}</li>
+                <li class="breadcrumb-item active">{{ __('Categories') }}</li>
             </ol>
         </div><!-- /.col -->
     </div><!-- /.row -->
@@ -25,10 +25,10 @@
             <div class="card">
                 <div class="card-header">
 
-                    <a class="btn btn-primary btn-sm" href="{{ route('dashboard.users.create') }}"> {{ __('Create') }} <i class="fas fa-plus-circle"></i></a>
+                    <a class="btn btn-primary btn-sm" href="{{ route('dashboard.categories.create') }}"> {{ __('Create') }} <i class="fas fa-plus-circle"></i></a>
 
                     <div class="card-tools">
-                        <form action="{{ route('dashboard.users.store') }}">
+                        <form action="{{ route('dashboard.categories.store') }}">
                             <div class="input-group input-group-sm" style="width: 150px;">
                                 <input type="text" name="table_search" class="float-right form-control" placeholder="Search">
 
@@ -48,29 +48,25 @@
                         <thead>
                             <tr>
                                 <th>{{ __('#') }}</th>
-                                <th>{{ __('First Name') }}</th>
-                                <th>{{ __('Last Name') }}</th>
-                                <th>{{ __('Email') }}</th>
+                                <th>{{ __('Name') }}</th>
                                 <th>{{ __('Action') }}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
+                            @foreach ($categories as $category)
                                 <tr>
-                                    <td>{{ $user->id }}</td>
-                                    <td>{{ $user->first_name }}</td>
-                                    <td>{{ $user->last_name }}</td>
-                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $category->id }}</td>
+                                    <td>{{ $category->name }}</td>
                                     <td>
                                         <div class="flex-row d-flex">
                                             <div class="mr-1">
-                                                <a href="{{ route('dashboard.users.edit', $user->id) }}"
+                                                <a href="{{ route('dashboard.categories.edit', $category->id) }}"
                                                     class="btn btn-info btn-sm">{{ __('Edit') }} <i
                                                         class="fa fa-edit"></i></a>
                                             </div>
 
                                             <div>
-                                                <form action="{{ route('dashboard.users.destroy', $user->id) }}"
+                                                <form action="{{ route('dashboard.categories.destroy', $category->id) }}"
                                                     method="POST">
 
                                                     @csrf
@@ -91,7 +87,7 @@
 
                     <div class="pb-0 card-footer">
                         <div class="float-right">
-                            {{ $users->links() }}
+                            {{ $categories->links() }}
 
                         </div>
                     </div>

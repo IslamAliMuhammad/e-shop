@@ -37,7 +37,7 @@
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header">
-                @include('dashboard.layouts.partials._content-header')
+                @yield('content-header')
             </div>
             <!-- /.content-header -->
 
