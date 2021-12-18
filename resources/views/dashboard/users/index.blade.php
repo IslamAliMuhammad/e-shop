@@ -25,12 +25,13 @@
             <div class="card">
                 <div class="card-header">
 
-                    <a class="btn btn-primary btn-sm" href="{{ route('dashboard.users.create') }}"> {{ __('Create') }} <i class="fas fa-plus-circle"></i></a>
+                    <a class="btn btn-primary btn-sm @cannot('create users') disabled @endcannot" href="{{ route('dashboard.users.create') }}">{{ __('Create') }} <i class="fas fa-plus-circle"></i></a>
 
                     <div class="card-tools">
-                        <form action="{{ route('dashboard.users.store') }}">
+                        <form action="{{ route('dashboard.users.index') }}" method="GET">
+
                             <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="float-right form-control" placeholder="Search">
+                                <input type="text" name="search" class="float-right form-control" placeholder="Search">
 
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-default">
@@ -65,7 +66,7 @@
                                         <div class="flex-row d-flex">
                                             <div class="mr-1">
                                                 <a href="{{ route('dashboard.users.edit', $user->id) }}"
-                                                    class="btn btn-info btn-sm">{{ __('Edit') }} <i
+                                                    class="btn btn-info btn-sm @cannot('update users') disabled @endcannot">{{ __('Edit') }} <i
                                                         class="fa fa-edit"></i></a>
                                             </div>
 
@@ -77,7 +78,7 @@
                                                     @method('DELETE')
 
                                                     <button type="submit"
-                                                        class="btn btn-danger btn-sm">{{ __('Delete') }} <i
+                                                        class="btn btn-danger btn-sm" @cannot('delete users') disabled @endcannot>{{ __('Delete') }} <i
                                                             class="fa fa-trash"></i></button>
                                                 </form>
                                             </div>
@@ -91,7 +92,7 @@
 
                     <div class="pb-0 card-footer">
                         <div class="float-right">
-                            {{ $users->links() }}
+                            {{ $users->appends(['search' => request()->query('search')])->links() }}
 
                         </div>
                     </div>

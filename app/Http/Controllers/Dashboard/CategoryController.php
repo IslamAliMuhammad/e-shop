@@ -14,10 +14,20 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $categories = Category::paginate(10);
+
+        if(auth()->user()->cannot('read categories')) {
+            return abort(403);
+        }
+
+        $categories = Category::when($request->search, function ($query) use ($request) {
+            return $query->whereTranslationLike('name', '%' . $request->search . '%');
+        })
+            ->latest()
+            ->paginate(2);
+
         return view('dashboard.categories.index', compact('categories'));
     }
 
@@ -29,6 +39,10 @@ class CategoryController extends Controller
     public function create()
     {
         //
+        if(auth()->user()->cannot('create categories')) {
+            return abort(403);
+        }
+
         return view('dashboard.categories.create');
 
     }
@@ -74,6 +88,11 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         //
+
+        if(auth()->user()->cannot('update categories')) {
+            return abort(403);
+        }
+
         return view('dashboard.categories.edit', compact('category'));
     }
 

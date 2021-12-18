@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -14,10 +15,27 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $users = User::paginate(2);
+
+        if(auth()->user()->cannot('read users')) {
+            return abort(403);
+        }
+
+        $users = User::where([
+            [function ($query) use ($request) {
+                if($term = $request->search){
+                    $query->where('first_name' , 'LIKE', '%' . $term . '%')
+                        ->orWhere('last_name' , 'LIKE', '%' . $term . '%')
+                        ->orWhereRaw("concat(first_name, ' ', last_name) like '%{$term}%' ");
+                }
+            }]
+        ])
+            ->latest()
+            ->paginate(2);
+
+
 
         return view('dashboard.users.index', compact('users'));
     }
@@ -30,8 +48,13 @@ class UserController extends Controller
     public function create()
     {
         //
+        if(auth()->user()->cannot('create users')) {
+            return abort(403);
+        }
 
-        return view('dashboard.users.create');
+        $roles = Role::all();
+
+        return view('dashboard.users.create', compact('roles'));
     }
 
     /**
@@ -48,14 +71,19 @@ class UserController extends Controller
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|max:255|email',
             'password' => 'required|string|max:255|password|confirmed',
+            'role_name' => 'nullable|string|max:255'
         ]);
+
         $requestData = $request->except('_token', 'password', 'password_confirmation');
 
         $passHashed = Hash::make($request->password);
 
         $requestData['password'] = $passHashed;
 
-        User::create($requestData);
+        $user = User::create($requestData);
+
+        $request->role_name ? $user->assignRole($request->role_name) : false;
+
         session()->flash('success', __('Successfully Created !'));
 
         return redirect()->route('dashboard.users.index');
@@ -81,8 +109,15 @@ class UserController extends Controller
     public function edit(User $user)
     {
         //
+        if(auth()->user()->cannot('update users')) {
+            return abort(403);
+        }
 
-        return view('dashboard.users.edit', compact('user'));
+        $roles = Role::all();
+
+        $userRole = $user->getRoleNames()->isEmpty() ? 'customer' : $user->getRoleNames()[0];
+
+        return view('dashboard.users.edit', compact('user', 'roles', 'userRole'));
     }
 
     /**
@@ -99,11 +134,16 @@ class UserController extends Controller
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'email' => 'required|string|max:255|email',
+            'role_name' => 'nullable|string|max:255'
         ]);
 
         $requestData = $request->except(['_token', '_method']);
 
         $user->update($requestData);
+
+        if($request->role_name) {
+            $user->syncRoles([$request->role_name]);
+        }
 
         session()->flash('success', __('Updated Successfully !'));
 

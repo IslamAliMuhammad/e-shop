@@ -25,12 +25,12 @@
             <div class="card">
                 <div class="card-header">
 
-                    <a class="btn btn-primary btn-sm" href="{{ route('dashboard.categories.create') }}"> {{ __('Create') }} <i class="fas fa-plus-circle"></i></a>
+                    <a class="btn btn-primary btn-sm @cannot('create categories') disabled @endcannot" href="{{ route('dashboard.categories.create') }}"> {{ __('Create') }} <i class="fas fa-plus-circle"></i></a>
 
                     <div class="card-tools">
-                        <form action="{{ route('dashboard.categories.store') }}">
+                        <form action="{{ route('dashboard.categories.index') }}" method="GET">
                             <div class="input-group input-group-sm" style="width: 150px;">
-                                <input type="text" name="table_search" class="float-right form-control" placeholder="Search">
+                                <input type="text" name="search" class="float-right form-control" placeholder="Search">
 
                                 <div class="input-group-append">
                                     <button type="submit" class="btn btn-default">
@@ -61,7 +61,7 @@
                                         <div class="flex-row d-flex">
                                             <div class="mr-1">
                                                 <a href="{{ route('dashboard.categories.edit', $category->id) }}"
-                                                    class="btn btn-info btn-sm">{{ __('Edit') }} <i
+                                                    class="btn btn-info btn-sm @cannot('update categories') disabled @endcannot">{{ __('Edit') }} <i
                                                         class="fa fa-edit"></i></a>
                                             </div>
 
@@ -73,7 +73,7 @@
                                                     @method('DELETE')
 
                                                     <button type="submit"
-                                                        class="btn btn-danger btn-sm">{{ __('Delete') }} <i
+                                                        class="btn btn-danger btn-sm" @cannot('delete categories') disabled @endcannot>{{ __('Delete') }} <i
                                                             class="fa fa-trash"></i></button>
                                                 </form>
                                             </div>
@@ -87,7 +87,7 @@
 
                     <div class="pb-0 card-footer">
                         <div class="float-right">
-                            {{ $categories->links() }}
+                            {{ $categories->appends(['search' => request()->query('search')])->links() }}
 
                         </div>
                     </div>

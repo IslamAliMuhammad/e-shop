@@ -54,11 +54,18 @@
                     @enderror
                 </div>
 
+                <label>{{ __('User Role') }}</label>
+                <select class="custom-select" name="role_name">
+                    <option value="">{{ __('Customer') }}</option>
+                    @foreach ($roles as $role)
+                        <option {{ ($userRole === $role->name) ? 'selected' : '' }} value="{{ $role->name }}">{{ $role->name }}</option>
+                    @endforeach
+                </select>
             </div>
             <!-- /.card-body -->
 
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary">{{ __('Create') }}</button>
+                <button type="submit" class="btn btn-primary">{{ __('Edit') }} <i class="fa fa-edit"></i></button>
             </div>
         </form>
     </div>

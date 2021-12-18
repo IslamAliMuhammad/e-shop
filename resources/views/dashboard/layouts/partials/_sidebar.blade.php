@@ -45,9 +45,8 @@
                     </p>
                 </a>
             </li>
-
             <li class="nav-item">
-                <a href="{{ route('dashboard.users.index') }}" class="nav-link">
+                <a href="{{ route('dashboard.users.index') }}" class="nav-link @cannot('read users') disabled @endcannot">
                     <i class="nav-icon fas fa-users"></i>
                     <p>
                         {{ __('Users') }}
@@ -56,7 +55,7 @@
             </li>
 
             <li class="nav-item">
-                <a href="{{ route('dashboard.categories.index') }}" class="nav-link">
+                <a href="{{ route('dashboard.categories.index') }}" class="nav-link @cannot('read categories') disabled @endcannot">
                     <i class="nav-icon fas fa-list"></i>
                     <p>
                         {{ __('Categories') }}
