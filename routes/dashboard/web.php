@@ -26,5 +26,8 @@ Route::group(
             })->name('home.index');
 
             Route::resource('users', UserController::class);
+
+            Route::resource('categories', CategoryController::class);
+
         });
     });
