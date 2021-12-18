@@ -49,7 +49,7 @@
             <!-- /.card-body -->
 
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary">{{ __('Create') }}</button>
+                <button type="submit" class="btn btn-primary">{{ __('Create') }} <i class="fa fa-plus-circle"></i></button>
             </div>
         </form>
     </div>
