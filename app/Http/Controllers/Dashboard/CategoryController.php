@@ -64,7 +64,7 @@ class CategoryController extends Controller
 
         Category::create($validatedData);
 
-        session()->flash('success', __('Created Successfully !'));
+        session()->flash('success', __('Category Successfully Created !'));
         return redirect()->route('dashboard.categories.index');
     }
 
@@ -114,7 +114,7 @@ class CategoryController extends Controller
 
         $category->update($validatedData);
 
-        session()->flash('success', __('Updated Successfully !'));
+        session()->flash('success', __('Category Successfully Updated !'));
 
         return redirect()->route('dashboard.categories.index');
     }

@@ -84,7 +84,7 @@ class UserController extends Controller
 
         $request->role_name ? $user->assignRole($request->role_name) : false;
 
-        session()->flash('success', __('Successfully Created !'));
+        session()->flash('success', __('User Successfully Created !'));
 
         return redirect()->route('dashboard.users.index');
     }
@@ -145,7 +145,7 @@ class UserController extends Controller
             $user->syncRoles([$request->role_name]);
         }
 
-        session()->flash('success', __('Updated Successfully !'));
+        session()->flash('success', __('User Successfully Updated !'));
 
         return redirect()->route('dashboard.users.index');
     }

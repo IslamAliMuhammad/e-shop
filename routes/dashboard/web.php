@@ -29,5 +29,7 @@ Route::group(
 
             Route::resource('categories', CategoryController::class);
 
+            Route::resource('discounts', DiscountController::class);
+
         });
     });

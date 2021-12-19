@@ -62,6 +62,14 @@
                     </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('dashboard.discounts.index') }}" class="nav-link @cannot('read discounts') disabled @endcannot">
+                    <i class="fas fa-tags"></i>
+                    <p class="ml-1">
+                        {{ __('Discounts') }}
+                    </p>
+                </a>
+            </li>
 
         </ul>
     </nav>
