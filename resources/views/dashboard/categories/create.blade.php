@@ -31,7 +31,7 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="enNameInp">{{ __('Name In English') }}</label>
-                    <input type="text" name="en[name]" class="form-control" id="enNameInp" placeholder="{{ __('Enter Name In English') }}" value="{{ old('first_name') }}" required>
+                    <input type="text" name="en[name]" class="form-control" id="enNameInp" placeholder="{{ __('Enter Name In English') }}" value="{{ old('name') }}" required>
                     @error("en[name]")
                         @include('dashboard.partials._validation-alert')
                     @enderror
@@ -39,7 +39,7 @@
 
                 <div class="form-group">
                     <label for="arNameInp">{{ __('Name In Arabic') }}</label>
-                    <input type="text" name="ar[name]" class="form-control" id="arNameInp" placeholder="{{ __('Enter Name In Arabic') }}" value="{{ old('last_name') }}" required>
+                    <input type="text" name="ar[name]" class="form-control" id="arNameInp" placeholder="{{ __('Enter Name In Arabic') }}" value="{{ old('name') }}" required>
                     @error("ar[name]")
                         @include('dashboard.partials._validation-alert')
                     @enderror
