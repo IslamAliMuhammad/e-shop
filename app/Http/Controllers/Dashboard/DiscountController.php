@@ -24,6 +24,7 @@ class DiscountController extends Controller
         $discounts = Discount::when($request->search, function ($query) use ($request) {
             return $query->whereTranslationLike('name', '%' . $request->search . '%', app()->getLocale());
         })
+            ->withTranslation()
             ->latest()
             ->paginate(2);
 

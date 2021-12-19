@@ -25,6 +25,7 @@ class CategoryController extends Controller
         $categories = Category::when($request->search, function ($query) use ($request) {
             return $query->whereTranslationLike('name', '%' . $request->search . '%');
         })
+            ->withTranslation()
             ->latest()
             ->paginate(2);
 
