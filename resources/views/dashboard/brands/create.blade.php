@@ -9,7 +9,7 @@
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard.home.index') }}">{{ __('Home') }}</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('dashboard.categories.index') }}">{{ __('Categories') }}</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.brands.index') }}">{{ __('Brands') }}</a></li>
                 <li class="breadcrumb-item active">{{ __('Create') }}</li>
             </ol>
         </div><!-- /.col -->
@@ -20,26 +20,19 @@
 @section('content')
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">{{ __('Create Category') }}</h3>
+            <h3 class="card-title">{{ __('Create Brand') }}</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form action="{{ route('dashboard.categories.store') }}" method="POST">
+        <form action="{{ route('dashboard.brands.store') }}" method="POST">
 
             @csrf
+
             <div class="card-body">
                 <div class="form-group">
-                    <label for="enNameInp">{{ __('Name In English') }}</label>
-                    <input type="text" name="en[name]" class="form-control" id="enNameInp" placeholder="{{ __('Enter Name In English') }}" value="{{ old('en.name') }}" required>
-                    @error("en.name")
-                        @include('dashboard.partials._validation-alert')
-                    @enderror
-                </div>
-
-                <div class="form-group">
-                    <label for="arNameInp">{{ __('Name In Arabic') }}</label>
-                    <input type="text" name="ar[name]" class="form-control" id="arNameInp" placeholder="{{ __('Enter Name In Arabic') }}" value="{{ old('ar.name') }}" required>
-                    @error("ar.name")
+                    <label for="nameInp">{{ __('Name') }}</label>
+                    <input type="text" name="name" class="form-control" id="nameInp" placeholder="{{ __('Enter Name') }}" value="{{ old('name') }}" required>
+                    @error("name")
                         @include('dashboard.partials._validation-alert')
                     @enderror
                 </div>
