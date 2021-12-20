@@ -4,9 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
-class UserSeeder extends Seeder
+class TestSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,5 +15,13 @@ class UserSeeder extends Seeder
     public function run()
     {
         //
+
+        // create users
+        User::factory()->count(30)->create();
+
+        $this->call([
+            BrandSeeder::class,
+        ]);
+
     }
 }

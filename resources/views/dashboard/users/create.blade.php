@@ -8,8 +8,8 @@
         </div><!-- /.col -->
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="{{ route('dashboard.home.index') }}">Home</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('dashboard.users.index') }}">Users</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.home.index') }}">{{ __('Home') }}</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('dashboard.users.index') }}">{{ __('Users') }}</a></li>
                 <li class="breadcrumb-item active">{{ __('Create') }}</li>
             </ol>
         </div><!-- /.col -->

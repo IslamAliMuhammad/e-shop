@@ -23,6 +23,7 @@ class RolesAndPermissionsSeeder extends Seeder
         $permissions = [
             'create users', 'read users', 'update users', 'delete users',
             'create categories', 'read categories', 'update categories', 'delete categories',
+            'create brands', 'read brands', 'update brands', 'delete brands',
             'create discounts', 'read discounts', 'update discounts', 'delete discounts',
             'create products', 'read products', 'update products', 'delete products',
         ];
