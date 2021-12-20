@@ -9,7 +9,7 @@
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard.home.index') }}">{{ __('Home') }}</a></li>
-                <li class="breadcrumb-item active">{{ __('Users') }}</li>
+                <li class="breadcrumb-item active">{{ __('Subcategories') }}</li>
             </ol>
         </div><!-- /.col -->
     </div><!-- /.row -->
@@ -25,11 +25,10 @@
             <div class="card">
                 <div class="card-header">
 
-                    <a class="btn btn-primary btn-sm @cannot('create users') disabled @endcannot" href="{{ route('dashboard.users.create') }}">{{ __('Create') }} <i class="fas fa-plus-circle"></i></a>
+                    <a class="btn btn-primary btn-sm @cannot('create subcategories') disabled @endcannot" href="{{ route('dashboard.subcategories.create') }}"> {{ __('Create') }} <i class="fas fa-plus-circle"></i></a>
 
                     <div class="card-tools">
-                        <form action="{{ route('dashboard.users.index') }}" method="GET">
-
+                        <form action="{{ route('dashboard.subcategories.index') }}" method="GET">
                             <div class="input-group input-group-sm" style="width: 150px;">
                                 <input type="text" name="search" class="float-right form-control" placeholder="Search">
 
@@ -49,36 +48,34 @@
                         <thead>
                             <tr>
                                 <th>{{ __('#') }}</th>
-                                <th>{{ __('First Name') }}</th>
-                                <th>{{ __('Last Name') }}</th>
-                                <th>{{ __('Email') }}</th>
+                                <th>{{ __('Name') }}</th>
+                                <th>{{ __('Category') }}</th>
                                 <th>{{ __('Action') }}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($users as $user)
+                            @foreach ($subcategories as $subcategory)
                                 <tr>
-                                    <td>{{ $user->id }}</td>
-                                    <td>{{ $user->first_name }}</td>
-                                    <td>{{ $user->last_name }}</td>
-                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $subcategory->id }}</td>
+                                    <td>{{ $subcategory->name }}</td>
+                                    <td>{{ $subcategory->category->name }}</td>
                                     <td>
                                         <div class="flex-row d-flex">
                                             <div class="mr-1">
-                                                <a href="{{ route('dashboard.users.edit', $user->id) }}"
-                                                    class="btn btn-info btn-sm @cannot('update users') disabled @endcannot">{{ __('Edit') }} <i
+                                                <a href="{{ route('dashboard.subcategories.edit', $subcategory->id) }}"
+                                                    class="btn btn-info btn-sm @cannot('update subcategories') disabled @endcannot">{{ __('Edit') }} <i
                                                         class="fa fa-edit"></i></a>
                                             </div>
 
                                             <div>
-                                                <form action="{{ route('dashboard.users.destroy', $user->id) }}"
+                                                <form action="{{ route('dashboard.subcategories.destroy', $subcategory->id) }}"
                                                     method="POST" class="deleteForm">
 
                                                     @csrf
                                                     @method('DELETE')
 
-                                                    <button type="submit" id="deleteBtn"
-                                                        class="btn btn-danger btn-sm" @cannot('delete users') disabled @endcannot>{{ __('Delete') }} <i
+                                                    <button type="submit"
+                                                        class="btn btn-danger btn-sm" @cannot('delete subcategories') disabled @endcannot>{{ __('Delete') }} <i
                                                             class="fa fa-trash"></i></button>
                                                 </form>
                                             </div>
@@ -92,7 +89,7 @@
 
                     <div class="pb-0 card-footer">
                         <div class="float-right">
-                            {{ $users->appends(['search' => request()->query('search')])->links() }}
+                            {{ $subcategories->appends(['search' => request()->query('search')])->links() }}
 
                         </div>
                     </div>
@@ -102,35 +99,13 @@
             <!-- /.card -->
         </div>
     </div>
-
-<!-- Modal HTML -->
-<!-- Modal -->
-<div class="modal fade" id="deleteModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
-        </div>
-      </div>
-    </div>
-  </div>
 @endsection
 
 @section('script')
 <script>
     $(document).ready(function() {
         $(".deleteForm").on("submit", function(e) {
-            return confirm("Do you want to delete this user?");
+            return confirm("Do you want to delete this subcategory?");
 
         });
 

@@ -6,8 +6,9 @@ use Illuminate\Database\Seeder;
 use Database\Seeders\SuperAdminSeeder;
 use Database\Seeders\GenderSeeder;
 use Database\Seeders\RolesAndPermissionsSeeder;
-use App\Models\Color;
-use App\Models\Size;
+use Database\Seeders\ColorSeeder;
+use Database\Seeders\SizeSeeder;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -23,8 +24,8 @@ class DatabaseSeeder extends Seeder
             GenderSeeder::class,
             RolesAndPermissionsSeeder::class,
             SuperAdminSeeder::class,
-            Color::class,
-            Size::class,
+            ColorSeeder::class,
+            SizeSeeder::class,
         ]);
     }
 }
