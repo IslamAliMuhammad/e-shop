@@ -29,6 +29,8 @@ Route::group(
 
             Route::resource('categories', CategoryController::class);
 
+            Route::resource('subcategories', SubcategoryController::class);
+
             Route::resource('brands', BrandController::class);
 
             Route::resource('discounts', DiscountController::class);

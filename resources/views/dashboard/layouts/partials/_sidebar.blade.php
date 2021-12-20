@@ -64,6 +64,15 @@
             </li>
 
             <li class="nav-item">
+                <a href="{{ route('dashboard.subcategories.index') }}" class="nav-link @cannot('read subcategories') disabled @endcannot">
+                    <i class="fas fa-stream"></i>
+                    <p class="ml-2">
+                        {{ __('Subcategories') }}
+                    </p>
+                </a>
+            </li>
+
+            <li class="nav-item">
                 <a href="{{ route('dashboard.brands.index') }}" class="nav-link" @cannot('read brands') disabled @endcannot>
                     <i class="fas fa-store-alt"></i>
                     <p class="ml-1">

@@ -157,7 +157,8 @@ return [
 
     'attributes' => [
         'en.name' => 'name in English',
-        'ar.name' => 'name in Arabic'
+        'ar.name' => 'name in Arabic',
+        'category_id' => 'category',
     ],
 
 ];

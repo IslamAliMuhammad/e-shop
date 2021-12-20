@@ -67,7 +67,7 @@
 
                                             <div>
                                                 <form action="{{ route('dashboard.brands.destroy', $brand->id) }}"
-                                                    method="POST">
+                                                    method="POST" class="deleteForm">
 
                                                     @csrf
                                                     @method('DELETE')
@@ -98,3 +98,16 @@
         </div>
     </div>
 @endsection
+
+@section('script')
+<script>
+    $(document).ready(function() {
+        $(".deleteForm").on("submit", function(e) {
+            return confirm("Do you want to delete this brand?");
+
+        });
+
+    })
+</script>
+@endsection
+
