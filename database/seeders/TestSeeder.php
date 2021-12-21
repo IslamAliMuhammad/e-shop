@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
-
+use Database\Seeders\SubcategorySeeder;
 class TestSeeder extends Seeder
 {
     /**
@@ -22,6 +22,7 @@ class TestSeeder extends Seeder
         $this->call([
             BrandSeeder::class,
             CategorySeeder::class,
+            SubcategorySeeder::class,
         ]);
 
     }

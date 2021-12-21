@@ -15,4 +15,8 @@ class Discount extends Model
     public $translatedAttributes = ['name', 'description'];
     protected $fillable = ['discount_percent', 'is_active'];
 
+
+    public function products() {
+        return $this->hasMany(Product::class);
+    }
 }

@@ -90,6 +90,15 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a href="{{ route('dashboard.products.index') }}" class="nav-link @cannot('read products') disabled @endcannot">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p class="ml-1">
+                        {{ __('Products') }}
+                    </p>
+                </a>
+            </li>
+
         </ul>
     </nav>
     <!-- /.sidebar-menu -->

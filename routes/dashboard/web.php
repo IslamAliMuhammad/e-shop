@@ -35,6 +35,7 @@ Route::group(
 
             Route::resource('discounts', DiscountController::class);
 
+            Route::resource('products', ProductController::class);
 
         });
     });

@@ -65,8 +65,7 @@ class CategoryController extends Controller
 
         Category::create($validatedData);
 
-        session()->flash('success', __('Category Successfully Created !'));
-        return redirect()->route('dashboard.categories.index');
+        return redirect()->route('dashboard.categories.index')->with('success', __('Category Successfully Created !'));
     }
 
     /**

@@ -159,6 +159,10 @@ return [
         'en.name' => 'name in English',
         'ar.name' => 'name in Arabic',
         'category_id' => 'category',
+        'subcategory_id' => 'subcategory',
+        'brand_id' => 'brand',
+        'discount_id' => 'discount',
+
     ],
 
 ];

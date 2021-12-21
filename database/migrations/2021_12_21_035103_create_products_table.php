@@ -17,11 +17,11 @@ class CreateProductsTable extends Migration
             $table->increments('id');
 
             $table->decimal('price');
-            $table->foreignId('brand_id')->constrained()->onDelete('cascade');
-            $table->integer('category_id')->unsigned();
-            $table->integer('discount_id')->unsigned();
+            $table->foreignId('brand_id')->nullable()->constrained()->onDelete('cascade');
+            $table->integer('subcategory_id')->unsigned();
+            $table->integer('discount_id')->unsigned()->nullable();
 
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('subcategory_id')->references('id')->on('subcategories')->onDelete('cascade');
             $table->foreign('discount_id')->references('id')->on('discounts')->onDelete('cascade');
 
             $table->timestamps();
