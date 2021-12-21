@@ -26,7 +26,9 @@ class SubcategoryController extends Controller
             return $query->whereTranslationLike('name', '%' . $request->search . '%');
         })
             ->withTranslation()
-            ->with(['category.translations'])
+            ->with(['category' => function ($query) {
+                $query->withTranslation();
+            }])
             ->latest()
             ->paginate(2);
 
