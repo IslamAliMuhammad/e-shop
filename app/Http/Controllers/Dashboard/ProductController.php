@@ -36,8 +36,7 @@ class ProductController extends Controller
                 $query->withTranslation();
             }])
             ->latest()
-            ->paginate(2);
-
+            ->paginate(10);
 
         return view('dashboard.products.index', compact('products'));
     }
@@ -111,7 +110,6 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //
-
         if(auth()->user()->cannot('update products')) {
             return abort(403);
         }

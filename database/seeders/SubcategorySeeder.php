@@ -15,25 +15,41 @@ class SubcategorySeeder extends Seeder
     {
         //
         $subcategories = ['Coats', 'Jackets', 'Dresses', 'Shirts', 'T-shirts', 'Jeans'];
+        $subcategoriesAr = ['معاطف', 'جواكت', 'فساتين', 'قمصان', 'تيشرتات', 'جينز'];
 
-        foreach ($subcategories as $subcategory) {
+        foreach ($subcategories as $index => $subcategory) {
             Subcategory::create([
                 'category_id' => 1,
-                'name' => $subcategory
+                'en' => [
+                    'name' => $subcategory
+                ],
+                'ar' => [
+                    'name' => $subcategoriesAr[$index]
+                ]
             ]);
         }
 
         foreach ($subcategories as $subcategory) {
             Subcategory::create([
                 'category_id' => 2,
-                'name' => $subcategory
+                'en' => [
+                    'name' => $subcategory
+                ],
+                'ar' => [
+                    'name' => $subcategoriesAr[$index]
+                ]
             ]);
         }
 
         foreach ($subcategories as $subcategory) {
             Subcategory::create([
                 'category_id' => 3,
-                'name' => $subcategory
+                'en' => [
+                    'name' => $subcategory
+                ],
+                'ar' => [
+                    'name' => $subcategoriesAr[$index]
+                ]
             ]);
         }
     }

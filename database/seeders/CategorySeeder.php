@@ -17,10 +17,16 @@ class CategorySeeder extends Seeder
         //
 
         $categories = ['Men', 'Women', 'Kids', 'Accessories', 'Cosmetic'];
+        $categoriesAr = ['رجال', 'نساء', 'اطفال', 'اكسسوارات', 'مستحضرات تجميل'];
 
-        foreach ($categories as $category) {
+        foreach ($categories as $index => $category) {
             Category::create([
-                'name' => $category
+                'en' => [
+                    'name' => $category
+                ],
+                'ar' => [
+                    'name' => $categoriesAr[$index]
+                ]
             ]);
         }
     }
