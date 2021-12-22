@@ -103,7 +103,7 @@
                 </div>
 
                 @if ($discounts->isNotEmpty())
-                    <div class="form-goup">
+                    <div class="mt-3 form-goup">
                         <label>{{ __('Discount') }}  <span class="font-weight-lighter font-italic">{{ __('(optional)') }}</span></label>
 
                         <select class="custom-select" name="discount_id">

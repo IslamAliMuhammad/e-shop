@@ -37,5 +37,7 @@ Route::group(
 
             Route::resource('products', ProductController::class);
 
+            Route::resource('products.variations', Product\VariationController::class);
+
         });
     });
