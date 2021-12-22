@@ -2,9 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Discount;
 use App\Models\User;
+use App\Models\Variation;
 use Illuminate\Database\Seeder;
 use Database\Seeders\SubcategorySeeder;
+use Database\Seeders\ProductSeeder;
 class TestSeeder extends Seeder
 {
     /**
@@ -23,6 +26,9 @@ class TestSeeder extends Seeder
             BrandSeeder::class,
             CategorySeeder::class,
             SubcategorySeeder::class,
+            DiscountSeeder::class,
+            ProductSeeder::class,
+            VariationSeeder::class,
         ]);
 
     }

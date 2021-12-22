@@ -69,7 +69,7 @@
                                     <td>{{ $product->subcategory->category->name }}</td>
                                     <td>{{ $product->subcategory->name }}</td>
                                     <td>{{ $product->brand->name }}</td>
-                                    <td>{{ ($product->discount) ? $product->discount->name . '%' : '' }}</td>
+                                    <td>{{ ($product->discount) ? $product->discount->name : '' }}</td>
                                     <td>
                                         <div class="flex-row d-flex">
                                             <div class="mr-1">
