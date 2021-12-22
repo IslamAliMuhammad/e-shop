@@ -11,8 +11,8 @@ class Size extends Model
 
     protected $fillable = ['name'];
 
-    public function productVariations()
+    public function variations()
     {
-        return $this->hasMany(ProductVariation::class);
+        return $this->hasMany(Variation::class);
     }
 }

@@ -55,6 +55,7 @@
                                 <th>{{ __('Subcategory') }}</th>
                                 <th>{{ __('Brand') }}</th>
                                 <th>{{ __('Discount %') }}</th>
+                                <th>{{ __('Variations') }}</th>
                                 <th>{{ __('Action') }}</th>
                             </tr>
                         </thead>
@@ -69,16 +70,31 @@
                                     <td>{{ $product->subcategory->name }}</td>
                                     <td>{{ $product->brand->name }}</td>
                                     <td>{{ ($product->discount) ? $product->discount->name . '%' : '' }}</td>
+                                    <td>
+                                        <div class="flex-row d-flex">
+                                            <div class="mr-1">
+                                                <a href="{{ route('dashboard.products.variations.create', $product->id) }}"
+                                                    class="btn btn-success btn-sm @cannot('create products') disabled @endcannot"><i
+                                                        class="fa fa-plus-circle"></i></a>
+                                            </div>
+
+                                            <div>
+                                                <a href="{{ route('dashboard.products.variations.index', $product->id) }}"
+                                                    class="btn btn-success btn-sm @cannot('read products') disabled @endcannot"><i
+                                                        class="fa fa-list"></i></a>
+                                            </div>
+                                        </div>
+                                    </td>
 
                                     <td>
                                         <div class="flex-row d-flex">
                                             <div class="mr-1">
                                                 <a href="{{ route('dashboard.products.edit', $product->id) }}"
-                                                    class="btn btn-info btn-sm @cannot('update products') disabled @endcannot">{{ __('Edit') }} <i
+                                                    class="btn btn-info btn-sm @cannot('update products') disabled @endcannot"><i
                                                         class="fa fa-edit"></i></a>
                                             </div>
 
-                                            <div>
+                                            <div class="mr-1">
                                                 <form action="{{ route('dashboard.products.destroy', $product->id) }}"
                                                     method="POST" class="deleteForm">
 
@@ -86,10 +102,11 @@
                                                     @method('DELETE')
 
                                                     <button type="submit"
-                                                        class="btn btn-danger btn-sm" @cannot('delete products') disabled @endcannot>{{ __('Delete') }} <i
+                                                        class="btn btn-danger btn-sm" @cannot('delete products') disabled @endcannot><i
                                                             class="fa fa-trash"></i></button>
                                                 </form>
                                             </div>
+
                                         </div>
                                     </td>
                                 </tr>

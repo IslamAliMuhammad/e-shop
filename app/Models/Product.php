@@ -14,10 +14,10 @@ class Product extends Model
 
     public $translatedAttributes = ['name', 'description'];
     protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at'];
-    protected $cascadeDeletes = ['productVariations'];
+    protected $cascadeDeletes = ['variations'];
 
-    public function productVariations() {
-        return $this->hasMany(ProductVariation::class);
+    public function variations() {
+        return $this->hasMany(Variation::class);
     }
 
     public function subcategory()

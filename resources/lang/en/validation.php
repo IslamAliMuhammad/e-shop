@@ -162,6 +162,8 @@ return [
         'subcategory_id' => 'subcategory',
         'brand_id' => 'brand',
         'discount_id' => 'discount',
+        'size_id' => 'size',
+        'color_id' => 'color',
 
     ],
 
