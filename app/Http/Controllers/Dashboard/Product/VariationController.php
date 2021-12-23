@@ -35,6 +35,20 @@ class VariationController extends Controller
         return view('dashboard.products.variations.index', compact('product', 'variations'));
     }
 
+    public function visual(Request $request, Product $product)
+    {
+        //
+        if(auth()->user()->cannot('read products')) {
+            return abort(403);
+        }
+
+        $variations = $product->variations()->with(['color', 'size'])->get();
+
+        $mediaItems = $product->getMedia();
+
+        return view('dashboard.products.variations.visual', compact('product', 'variations', 'mediaItems'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

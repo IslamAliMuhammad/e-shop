@@ -24,7 +24,7 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form action="{{ route('dashboard.users.update', $user->id) }}" method="POST">
+        <form action="{{ route('dashboard.users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
 
             @csrf
             @method('PUT')
@@ -54,13 +54,20 @@
                     @enderror
                 </div>
 
-                <label>{{ __('User Role') }}</label>
-                <select class="custom-select" name="role_name">
-                    <option value="">{{ __('Customer') }}</option>
-                    @foreach ($roles as $role)
-                        <option {{ ($userRole === $role->name) ? 'selected' : '' }} value="{{ $role->name }}">{{ $role->name }}</option>
-                    @endforeach
-                </select>
+                <div class="for-group">
+                    <label>{{ __('User Role') }}</label>
+                    <select class="custom-select" name="role_name">
+                        <option value="">{{ __('Customer') }}</option>
+                        @foreach ($roles as $role)
+                            <option {{ ($userRole === $role->name) ? 'selected' : '' }} value="{{ $role->name }}">{{ $role->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="mt-4 form-group">
+                    <label for="myfile">Select images:</label>
+                    <input type="file" id="myfile" name="image">
+                </div>
             </div>
             <!-- /.card-body -->
 

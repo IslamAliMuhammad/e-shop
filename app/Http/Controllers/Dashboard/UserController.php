@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Image\Manipulations;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -32,6 +33,7 @@ class UserController extends Controller
                 }
             }]
         ])
+            ->with(['media'])
             ->latest()
             ->paginate(2);
 
@@ -84,9 +86,12 @@ class UserController extends Controller
 
         $request->role_name ? $user->assignRole($request->role_name) : false;
 
-        session()->flash('success', __('User Successfully Created !'));
+        if($request->image) {
+            $user->addMediaFromRequest('image')->toMediaCollection();
 
-        return redirect()->route('dashboard.users.index');
+        }
+
+        return redirect()->route('dashboard.users.index')->with('success', __('User Successfully Created !'));
     }
 
     /**
@@ -145,9 +150,13 @@ class UserController extends Controller
             $user->syncRoles([$request->role_name]);
         }
 
-        session()->flash('success', __('User Successfully Updated !'));
+        if($request->image) {
+            $user->clearMediaCollection();
+            $user->addMediaFromRequest('image')->toMediaCollection();
 
-        return redirect()->route('dashboard.users.index');
+        }
+
+        return redirect()->route('dashboard.users.index')->with('success', __('User Successfully Updated !'));
     }
 
     /**

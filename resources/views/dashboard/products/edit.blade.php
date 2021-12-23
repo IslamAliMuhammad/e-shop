@@ -24,7 +24,7 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form action="{{ route('dashboard.products.update', $product->id) }}" method="POST">
+        <form action="{{ route('dashboard.products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
 
             @csrf
             @method('PUT')
@@ -117,6 +117,11 @@
                         @enderror
                     </div>
                 @endif
+
+                <div class="mt-3 form-group">
+                    <label for="files">Select images:</label>
+                    <input type="file" id="files" name="files[]" multiple><br><br>
+                </div>
 
             </div>
 

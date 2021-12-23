@@ -56,7 +56,7 @@
                                 <th>{{ __('Brand') }}</th>
                                 <th>{{ __('Discount %') }}</th>
                                 <th>{{ __('Variations') }}</th>
-                                <th>{{ __('Action') }}</th>
+                                <th>{{ __('Actions') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -70,23 +70,32 @@
                                     <td>{{ $product->subcategory->name }}</td>
                                     <td>{{ $product->brand->name }}</td>
                                     <td>{{ ($product->discount) ? $product->discount->name : '' }}</td>
-                                    <td>
+
+                                    <td id="variations">
                                         <div class="flex-row d-flex">
                                             <div class="mr-1">
                                                 <a href="{{ route('dashboard.products.variations.create', $product->id) }}"
-                                                    class="btn btn-success btn-sm @cannot('create products') disabled @endcannot"><i
+                                                    class="btn btn-secondary btn-sm @cannot('create products') disabled @endcannot"><i
                                                         class="fa fa-plus-circle"></i></a>
                                             </div>
 
-                                            <div>
+                                            <div class="mr-1">
                                                 <a href="{{ route('dashboard.products.variations.index', $product->id) }}"
-                                                    class="btn btn-success btn-sm @cannot('read products') disabled @endcannot"><i
+                                                    class="btn btn-info btn-sm @cannot('read products') disabled @endcannot"><i
                                                         class="fa fa-list"></i></a>
                                             </div>
+
+
+                                            <div>
+                                                <a href="{{ route('dashboard.products.variations.visual', $product->id) }}"
+                                                    class="btn btn-warning btn-sm @cannot('update products') disabled @endcannot"><i class="fas fa-images"></i>
+                                                </a>
+                                            </div>
+
                                         </div>
                                     </td>
 
-                                    <td>
+                                    <td id="actions">
                                         <div class="flex-row d-flex">
                                             <div class="mr-1">
                                                 <a href="{{ route('dashboard.products.edit', $product->id) }}"
