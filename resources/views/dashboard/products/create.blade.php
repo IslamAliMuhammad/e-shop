@@ -24,7 +24,7 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form action="{{ route('dashboard.products.store') }}" method="POST">
+        <form action="{{ route('dashboard.products.store') }}" method="POST" enctype="multipart/form-data">
 
             @csrf
 
@@ -117,6 +117,10 @@
                     </div>
                 @endif
 
+                <div class="mt-3 form-group">
+                    <label for="files">Select images:</label>
+                    <input type="file" id="files" name="files[]" multiple><br><br>
+                </div>
             </div>
             <!-- /.card-body -->
 
@@ -127,3 +131,5 @@
     </div>
 
 @endsection
+
+

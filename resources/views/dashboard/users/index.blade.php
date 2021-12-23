@@ -52,6 +52,7 @@
                                 <th>{{ __('First Name') }}</th>
                                 <th>{{ __('Last Name') }}</th>
                                 <th>{{ __('Email') }}</th>
+                                <th>{{ __('Image') }}</th>
                                 <th>{{ __('Action') }}</th>
                             </tr>
                         </thead>
@@ -62,6 +63,11 @@
                                     <td>{{ $user->first_name }}</td>
                                     <td>{{ $user->last_name }}</td>
                                     <td>{{ $user->email }}</td>
+
+                                    <td>
+                                        <img src="{{ $user->getMedia()->isNotEmpty() ?  $user->getMedia()[0]->getFullUrl('thumb') : '' }}" class="img-thumbnail" alt="">
+                                    </td>
+
                                     <td>
                                         <div class="flex-row d-flex">
                                             <div class="mr-1">

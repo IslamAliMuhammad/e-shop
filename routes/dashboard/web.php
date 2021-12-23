@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use App\Http\Controllers\Dashboard\Product\VariationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,8 @@ Route::group(
             Route::resource('discounts', DiscountController::class);
 
             Route::resource('products', ProductController::class);
+
+            Route::get('/products/{product}/variations/visual', [VariationController::class, 'visual'])->name('products.variations.visual');
 
             Route::resource('products.variations', Product\VariationController::class);
 
