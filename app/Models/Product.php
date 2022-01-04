@@ -19,6 +19,10 @@ class Product extends Model implements HasMedia
     protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at'];
     protected $cascadeDeletes = ['variations'];
 
+    public function getPrice() {
+        return number_format($this->price, 2);
+    }
+
     public function variations() {
         return $this->hasMany(Variation::class);
     }
@@ -37,4 +41,5 @@ class Product extends Model implements HasMedia
     {
         return $this->belongsTo(Brand::class);
     }
+
 }

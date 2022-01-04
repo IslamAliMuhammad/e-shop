@@ -65,7 +65,7 @@
                                     <td>{{ $product->id }}</td>
                                     <td>{{ $product->name }}</td>
                                     <td>{{ $product->description }}</td>
-                                    <td>{{ $product->price }}</td>
+                                    <td>{{ $product->getPrice() }}</td>
                                     <td>{{ $product->subcategory->category->name }}</td>
                                     <td>{{ $product->subcategory->name }}</td>
                                     <td>{{ $product->brand->name }}</td>
