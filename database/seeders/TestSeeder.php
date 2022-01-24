@@ -2,12 +2,15 @@
 
 namespace Database\Seeders;
 
-use App\Models\Discount;
 use App\Models\User;
-use App\Models\Variation;
 use Illuminate\Database\Seeder;
-use Database\Seeders\SubcategorySeeder;
+use Database\Seeders\OrderSeeder;
+use Database\Seeders\CouponSeeder;
+use Database\Seeders\ReviewSeeder;
+use Database\Seeders\AddressSeeder;
 use Database\Seeders\ProductSeeder;
+use Database\Seeders\SubcategorySeeder;
+
 class TestSeeder extends Seeder
 {
     /**
@@ -20,15 +23,18 @@ class TestSeeder extends Seeder
         //
 
         // create users
-        User::factory()->count(30)->create();
 
         $this->call([
+            AddressSeeder::class,
             BrandSeeder::class,
             CategorySeeder::class,
             SubcategorySeeder::class,
             DiscountSeeder::class,
             ProductSeeder::class,
             VariationSeeder::class,
+            ReviewSeeder::class,
+            CouponSeeder::class,
+            OrderSeeder::class,
         ]);
 
     }

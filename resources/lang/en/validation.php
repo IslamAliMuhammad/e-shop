@@ -164,7 +164,7 @@ return [
         'discount_id' => 'discount',
         'size_id' => 'size',
         'color_id' => 'color',
-
+        'body' => 'review'
     ],
 
 ];

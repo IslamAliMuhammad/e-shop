@@ -709,5 +709,103 @@
     "Zambia": "زامبيا",
     "Zimbabwe": "زيمبابوي",
     "Zip \/ Postal Code": "الرمز البريدي",
-    "Åland Islands": "جزر آلاند"
+    "Åland Islands": "جزر آلاند",
+
+
+
+
+    "Home": "الرئيسية",
+    "Shop": "تسوق",
+    "Shopping Cart": "عربة التسوق",
+    "Blog": "مدونة",
+    "About": "عن الشركة",
+    "Contact": "تواصل معنا",
+
+
+    "Account Settings": "اعدادات الحساب",
+
+    "Categories": "التصنيفات",
+    "Help": "مساعدة",
+    "GET IN TOUCH": "تواصل معنا",
+    "Newsletter": "النشرة الإخبارية",
+
+    "Track Order": "تتبع الطلب",
+    "Returns": "الارجاع",
+    "Shipping": "الشحن",
+    "FAQs": "الأسئلة الشائعة",
+
+    "Men Collection 2022": "مجموعة الرجال ٢٠٢٢",
+    "NEW SEASON": "الموسم الجديد",
+    "Shop Now": "تسوق الان",
+    "Jackets & Coats": "جاكيتات ومعطف",
+    "Women Collection 202": "مجموعة النساء ٢٠٢٢",
+    "New arrivals": "وصل حديثا",
+
+    "Men": "رحال",
+    "Spring 2022": "الخريف ٢٠٢٢",
+    "Women": "النساء",
+    "Accessories": "اكسسوارات",
+    "New Trend": "الموضة",
+    "Products Overview": "نظرة عامة على المنتجات",
+
+    "All Products": "جميع المنتجات",
+    "Filter": "تصفية",
+
+    "Shoping Cart": "تسوق",
+    "Product": "تسوق",
+    "Price": "السعر",
+    "Quantity": "تسوق",
+    "Total": "الاجمالى",
+
+    "Apply coupon": "تطبيق كوبون",
+    "Delete All": "حذف الكل",
+
+    "Cart Totals": "اجمالى عربة التسوق",
+    "Subtotal": "المجموع الفرعى",
+    "Proceed to Checkout": "متابعة الدفع",
+
+    "Send Us A Message": "أرسل لنا رسالة",
+    "Lets Talk": "لنتحدث",
+    "Sale Support": "الدعم الفنى للمبيعات",
+    "How Can We Help?": "كيف يمكننا مساعدتك",
+    "Our Story": "قصتنا",
+    "Our Mission": "مهمتنا",
+
+
+    "Related Products": "المنتجات ذات الصلة",
+    "Description": "الوصف",
+    "Additional information": "معلومات اضافية",
+    "Reviews": "المراجعات",
+    "Color": "اللون",
+    "Size": "المقاس",
+    "Add to cart": "اضافة الى عربة التسوق",
+    "Your email address will not be published. Required fields are marked *": "البريد الالكترونى الخاص بك لن يتم نشره",
+    "Add a review": "اضافة مراجعة",
+    "Your Rating": "تقييمك",
+    "Your review": "مراجعتك",
+    "Product Details": "تفاصيل المنتج",
+    "Coupon Code": "كود الخصم",
+
+    "Your cart": "عربة التسوق الخاصة بك",
+    "Checkout": "دفع",
+    "Shipping address": "عنوان الشحن",
+    "Please enter your shipping address.": "من فضلك ادخل عنوان الشحن الخاص بك",
+    "Apartment or suite": "شقة او جناح",
+    "Address Line 1": "عنوان 1",
+    "Mobile Number": "التليفون المحمول",
+    "Postal Code": "كود البريد",
+    "Cash on Delivery (COD)": "الدفع عند الاستلام",
+    "Payment": "الدفع",
+    "Continue to checkout": "الاستمرار للدفع",
+    "Shipping Fees": "رسوم الشحن",
+    "Area": "المنطقة",
+
+    "Sort By": "ترتيب حسب",
+    "Newness": "الاحدث",
+    "Price: Low to High": "السعر: من الاقل الى الاعلى",
+    "Price: High to Low": "السعر: من الاعلى الى الاقل",
+    "All": "الكل",
+    "Sorry, No Products Found": "لم يتم العثور على منتجات",
+    "EGP": "جنيه"
+
 }

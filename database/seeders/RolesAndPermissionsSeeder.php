@@ -27,6 +27,8 @@ class RolesAndPermissionsSeeder extends Seeder
             'create brands', 'read brands', 'update brands', 'delete brands',
             'create discounts', 'read discounts', 'update discounts', 'delete discounts',
             'create products', 'read products', 'update products', 'delete products',
+            'create orders', 'read orders', 'update orders', 'delete orders',
+            'create coupons', 'read coupons', 'update coupons', 'delete coupons',
         ];
 
         foreach($permissions as $permission) {

@@ -8,6 +8,8 @@ use Database\Seeders\GenderSeeder;
 use Database\Seeders\RolesAndPermissionsSeeder;
 use Database\Seeders\ColorSeeder;
 use Database\Seeders\SizeSeeder;
+use Database\Seeders\CitySeeder;
+use Database\Seeders\AreaSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,6 +28,8 @@ class DatabaseSeeder extends Seeder
             SuperAdminSeeder::class,
             ColorSeeder::class,
             SizeSeeder::class,
+            CitySeeder::class,
+            AreaSeeder::class,
         ]);
     }
 }

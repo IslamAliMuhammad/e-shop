@@ -24,7 +24,7 @@ class ProductSeeder extends Seeder
                 'name' => 'كنزة صوفية قطن عالي الجودة',
                 'description' => 'عالية الجودة الرجال القطن ليكرا قسط المواد السترة'
             ],
-             'price' => rand(100, 1000), 'subcategory_id' => rand(1, 15), 'brand_id' => rand(1, 20), 'discount_id' => rand(1, 5)],
+             'price' => rand(0, 50), 'subcategory_id' => rand(1, 15), 'brand_id' => rand(1, 20), 'discount_id' => rand(1, 5)],
             [ 'en' => [
                 'name' => 'Cotton High Neck Sweatshirt',
                 'description' => 'Highcool Cotton'
@@ -33,7 +33,7 @@ class ProductSeeder extends Seeder
                 'name' => 'سويت شيرت قطن بياقة عالية',
                 'description' => 'قطن هاي كول'
             ],
-             'price' => rand(100, 1000), 'subcategory_id' => rand(1, 15), 'brand_id' => rand(1, 20), 'discount_id' => rand(1, 5)],
+             'price' => rand(50, 100), 'subcategory_id' => rand(1, 15), 'brand_id' => rand(1, 20), 'discount_id' => rand(1, 5)],
             [ 'en' => [
                 'name' => 'Full Sleeves Highcool For Men',
                 'description' => 'Material Composition: 60% Naylon 40% Viscose'
@@ -42,7 +42,7 @@ class ProductSeeder extends Seeder
                 'name' => 'هاى كول بأكمام طويلة للرجال',
                 'description' => 'عالية الجودة الرجال القطن ليكرا قسط المواد السترة'
             ],
-             'price' => rand(100, 1000), 'subcategory_id' => rand(1, 15), 'brand_id' => rand(1, 20), 'discount_id' => rand(1, 5)],
+             'price' => rand(100, 150), 'subcategory_id' => rand(1, 15), 'brand_id' => rand(1, 20), 'discount_id' => rand(1, 5)],
             [ 'en' => [
                 'name' => 'Round Sweatshirt with Long sleeves',
                 'description' => 'Full Buttons Down Black Cardigan'
@@ -51,7 +51,7 @@ class ProductSeeder extends Seeder
                 'name' => 'سويت شيرت دائري بأكمام طويلة',
                 'description' => 'أزرار كاملة أسفل كارديجان أسود'
             ],
-             'price' => rand(100, 1000), 'subcategory_id' => rand(1, 15), 'brand_id' => rand(1, 20), 'discount_id' => rand(1, 5)],
+             'price' => rand(150, 200), 'subcategory_id' => rand(1, 15), 'brand_id' => rand(1, 20), 'discount_id' => rand(1, 5)],
             [ 'en' => [
                 'name' => 'Zip Up Hoodie',
                 'description' => 'Sweatshirt Round neck with long sleeves'
@@ -60,7 +60,7 @@ class ProductSeeder extends Seeder
                 'name' => 'هودي بسحاب',
                 'description' => 'سويت شيرت برقبة دائرية واكمام طويلة'
             ],
-             'price' => rand(100, 1000), 'subcategory_id' => rand(1, 15), 'brand_id' => rand(1, 20), 'discount_id' => rand(1, 5)],
+             'price' => rand(200, 1000), 'subcategory_id' => rand(1, 15), 'brand_id' => rand(1, 20), 'discount_id' => rand(1, 5)],
              [ 'en' => [
                 'name' => 'Zip Up Hoodie Long sleeves',
                 'description' => 'Sweatshirt Round neck with long sleeves'
@@ -69,7 +69,7 @@ class ProductSeeder extends Seeder
                 'name' => 'اكمام طويلة هودي بسحاب',
                 'description' => 'سويت شيرت برقبة دائرية واكمام طويلة'
             ],
-             'price' => rand(100, 1000), 'subcategory_id' => rand(1, 15), 'brand_id' => rand(1, 20), 'discount_id' => rand(1, 5)],
+             'price' => rand(200, 1000), 'subcategory_id' => rand(1, 15), 'brand_id' => rand(1, 20), 'discount_id' => rand(1, 5)],
         ];
 
         foreach ($products as $product) {
