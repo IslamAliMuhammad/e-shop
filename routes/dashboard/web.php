@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Dashboard\HomeController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\Dashboard\Product\VariationController;
 
@@ -22,9 +23,8 @@ Route::group(
     ], function(){ //...
 
         Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function () {
-            Route::get('/', function () {
-                return view('dashboard.layouts/app');
-            })->name('home.index');
+
+            Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
             Route::resource('users', UserController::class);
 
@@ -41,6 +41,14 @@ Route::group(
             Route::get('/products/{product}/variations/visual', [VariationController::class, 'visual'])->name('products.variations.visual');
 
             Route::resource('products.variations', Product\VariationController::class);
+
+            Route::resource('orders', OrderController::class);
+
+
+            Route::resource('orders.order_items', Order\OrderItemController::class);
+
+
+            Route::resource('coupons', CouponController::class);
 
         });
     });

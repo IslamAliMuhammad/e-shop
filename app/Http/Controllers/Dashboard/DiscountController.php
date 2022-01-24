@@ -39,7 +39,7 @@ class DiscountController extends Controller
     public function create()
     {
         //
-        if(auth()->user()->cannot('read discounts')) {
+        if(auth()->user()->cannot('create discounts')) {
             return abort(403);
         }
 
@@ -90,7 +90,7 @@ class DiscountController extends Controller
     public function edit(Discount $discount)
     {
         //
-        if(auth()->user()->cannot('read discounts')) {
+        if(auth()->user()->cannot('read update')) {
             return abort(403);
         }
         return view('dashboard.discounts.edit', compact('discount'));

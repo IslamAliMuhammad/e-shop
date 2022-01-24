@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Order;
 use Illuminate\Support\Str;
 use Spatie\Image\Manipulations;
 use Laravel\Sanctum\HasApiTokens;
@@ -16,7 +17,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements HasMedia
+class User extends Authenticatable implements HasMedia, MustVerifyEmail
 {
     use HasApiTokens;
     use HasFactory;
@@ -38,6 +39,9 @@ class User extends Authenticatable implements HasMedia
         'email',
         'password',
         'gender_id',
+        'github_id',
+        'github_token',
+        'github_refresh_token',
     ];
 
     /**
@@ -81,5 +85,20 @@ class User extends Authenticatable implements HasMedia
     public function getFullNameAttribute()
     {
         return Str::title("{$this->first_name} {$this->last_name}");
+    }
+
+    public function address()
+    {
+        return $this->hasOne(Address::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
     }
 }

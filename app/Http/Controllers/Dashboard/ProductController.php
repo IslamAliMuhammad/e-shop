@@ -87,9 +87,11 @@ class ProductController extends Controller
 
         $product = Product::create($validatedData);
 
-        $product->addMultipleMediaFromRequest(['files'])->each(function ($fileAdder) {
-            $fileAdder->toMediaCollection();
-        });
+        if(!empty($request->files->all())) {
+            $product->addMultipleMediaFromRequest(['files'])->each(function ($fileAdder) {
+                $fileAdder->toMediaCollection();
+            });
+        }
 
         return redirect()->route('dashboard.products.index')->with('success', __('Product Successfully Created !'));
     }
@@ -152,7 +154,7 @@ class ProductController extends Controller
 
         $product->update($validatedData);
 
-        if($request->files) {
+        if(!empty($request->files->all())) {
             $product->clearMediaCollection();
             $product->addMultipleMediaFromRequest(['files'])->each(function ($fileAdder) {
                 $fileAdder->toMediaCollection();
