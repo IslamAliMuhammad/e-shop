@@ -8,6 +8,7 @@ use Spatie\Image\Manipulations;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
@@ -19,7 +20,6 @@ class UserController extends Controller
     public function index(Request $request)
     {
         //
-
         if(auth()->user()->cannot('read users')) {
             return abort(403);
         }
@@ -137,7 +137,7 @@ class UserController extends Controller
         //
         $request->validate([
             'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
+            'last_name' => 'nullable|string|max:255',
             'email' => 'required|string|max:255|email',
             'role_name' => 'nullable|string|max:255'
         ]);

@@ -43,7 +43,7 @@ class RolesAndPermissionsSeeder extends Seeder
         ->givePermissionTo(Permission::all());
 
         Role::create(['name' => 'admin'])
-            ->givePermissionTo(Permission::all()->except(['create users','update users', 'delete users']));
+            ->givePermissionTo(Permission::whereNotIn('name', ['create users','update users', 'delete users'])->get());
 
         Role::create(['name' => 'employee'])
             ->givePermissionTo([
