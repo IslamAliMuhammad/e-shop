@@ -27,7 +27,7 @@ class CategoryController extends Controller
         })
             ->withTranslation()
             ->latest()
-            ->paginate(2);
+            ->paginate(5);
 
         return view('dashboard.categories.index', compact('categories'));
     }

@@ -30,7 +30,7 @@ class VariationController extends Controller
         })
         ->with(['color', 'size'])
         ->latest()
-        ->paginate(2);
+        ->paginate(5);
 
         return view('dashboard.products.variations.index', compact('product', 'variations'));
     }

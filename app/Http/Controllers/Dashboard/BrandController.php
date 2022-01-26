@@ -24,7 +24,7 @@ class BrandController extends Controller
             return $query->where('name', 'LIKE', '%' . $request->search . '%');
         })
             ->latest()
-            ->paginate(2);
+            ->paginate(5);
 
         return view('dashboard.brands.index', compact('brands'));
 

@@ -17,7 +17,7 @@ class Category extends Model
     protected $cascadeDeletes = ['subcategories'];
 
     public function subcategories() {
-        return $this->hasMany(SubCategory::class);
+        return $this->hasMany(Subcategory::class);
     }
 
 }

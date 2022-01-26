@@ -30,7 +30,7 @@ class SubcategoryController extends Controller
                 $query->withTranslation();
             }])
             ->latest()
-            ->paginate(2);
+            ->paginate(5);
 
         return view('dashboard.subcategories.index', compact('subcategories'));
     }

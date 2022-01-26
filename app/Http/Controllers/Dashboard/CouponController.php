@@ -28,7 +28,7 @@ class CouponController extends Controller
             return $query->where('code', 'LIKE', '%' . $request->search . '%');
         })
             ->latest()
-            ->paginate(2);
+            ->paginate(5);
 
         return view('dashboard.coupons.index', compact('coupons'));
     }

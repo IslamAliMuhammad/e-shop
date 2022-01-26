@@ -26,7 +26,7 @@ class DiscountController extends Controller
         })
             ->withTranslation()
             ->latest()
-            ->paginate(2);
+            ->paginate(5);
 
         return view('dashboard.discounts.index', compact('discounts'));
     }

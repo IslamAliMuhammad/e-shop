@@ -35,7 +35,7 @@ class UserController extends Controller
         ])
             ->with(['media'])
             ->latest()
-            ->paginate(2);
+            ->paginate(5);
 
 
 
