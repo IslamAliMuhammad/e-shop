@@ -15,7 +15,7 @@ class ReviewFactory extends Factory
     {
         return [
             //
-            'product_id' => rand(1, 6),
+            'product_id' => rand(1, 60),
             'rating' => rand(1, 5),
             'body' => $this->faker->sentence(),
             'reviewer_name' => $this->faker->name(),
