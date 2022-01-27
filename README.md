@@ -14,17 +14,17 @@ An online store that consists of client app and dashboard built with Laravel fra
 * [Bootstrap](https://getbootstrap.com/)
 
 ## Key features:
-* Clien App + Dashboard
+* Client App + Dashboard
 * Support multi-languages (LTR - RTL)
 * Roles and permissions functionality.
 * Sales graph analysis.
 * Shopping-cart.
-* Whishlist.
+* Wishlist.
 * Blog.
 * Coupons.
 * Sending mails.
 * Full-text search.
-* Sign-in with third party.
+* Sign-in with a third party.
 
 ## Getting Started  
 
