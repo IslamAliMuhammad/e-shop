@@ -67,10 +67,11 @@ An online store that consists of client app and dashboard built with Laravel fra
 ## App Screenshots
 
 ![3](/screenshots/2.PNG)
-![4](/screenshots/dash2.PNG)
-![5](/screenshots/3.PNG)
-![6](/screenshots/dash6.PNG)
-![7](/screenshots/1.PNG)
-![5](/screenshots/dash5.PNG)
+![4](/screenshots/4.PNG)
+![5](/screenshots/dash2.PNG)
+![6](/screenshots/3.PNG)
+![7](/screenshots/dash6.PNG)
+![8](/screenshots/1.PNG)
+![9](/screenshots/dash5.PNG)
 
 
