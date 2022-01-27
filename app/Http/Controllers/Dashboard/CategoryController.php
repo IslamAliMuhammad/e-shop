@@ -26,7 +26,7 @@ class CategoryController extends Controller
             return $query->whereTranslationLike('name', '%' . $request->search . '%');
         })
             ->withTranslation()
-            ->latest()
+            ->orderBy('id', 'desc')
             ->paginate(5);
 
         return view('dashboard.categories.index', compact('categories'));

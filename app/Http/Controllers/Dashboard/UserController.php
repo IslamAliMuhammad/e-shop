@@ -34,7 +34,7 @@ class UserController extends Controller
             }]
         ])
             ->with(['media'])
-            ->latest()
+            ->orderBy('id', 'desc')
             ->paginate(5);
 
 

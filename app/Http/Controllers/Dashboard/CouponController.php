@@ -27,7 +27,7 @@ class CouponController extends Controller
         $coupons = Coupon::when($request->search, function ($query) use ($request) {
             return $query->where('code', 'LIKE', '%' . $request->search . '%');
         })
-            ->latest()
+            ->orderBy('id', 'desc')
             ->paginate(5);
 
         return view('dashboard.coupons.index', compact('coupons'));

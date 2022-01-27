@@ -23,7 +23,7 @@ class BrandController extends Controller
         $brands = Brand::when($request->search, function ($query) use ($request) {
             return $query->where('name', 'LIKE', '%' . $request->search . '%');
         })
-            ->latest()
+            ->orderBy('id', 'desc')
             ->paginate(5);
 
         return view('dashboard.brands.index', compact('brands'));

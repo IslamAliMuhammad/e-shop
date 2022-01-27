@@ -25,7 +25,7 @@ class DiscountController extends Controller
             return $query->whereTranslationLike('name', '%' . $request->search . '%', app()->getLocale());
         })
             ->withTranslation()
-            ->latest()
+            ->orderBy('id', 'desc')
             ->paginate(5);
 
         return view('dashboard.discounts.index', compact('discounts'));

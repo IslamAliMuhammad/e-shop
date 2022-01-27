@@ -29,7 +29,7 @@ class SubcategoryController extends Controller
             ->with(['category' => function ($query) {
                 $query->withTranslation();
             }])
-            ->latest()
+            ->orderBy('id', 'desc')
             ->paginate(5);
 
         return view('dashboard.subcategories.index', compact('subcategories'));

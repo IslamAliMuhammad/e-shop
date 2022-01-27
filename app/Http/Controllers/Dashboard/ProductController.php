@@ -35,7 +35,7 @@ class ProductController extends Controller
             }, 'brand', 'discount' => function ($query) {
                 $query->withTranslation();
             }])
-            ->latest()
+            ->orderBy('id', 'desc')
             ->paginate(10);
 
         return view('dashboard.products.index', compact('products'));
