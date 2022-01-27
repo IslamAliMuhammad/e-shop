@@ -29,8 +29,13 @@ class VariationController extends Controller
             return $query->where('sku', 'LIKE', '%' . $request->search . '%');
         })
         ->with(['color', 'size'])
+<<<<<<< HEAD
         ->latest()
         ->paginate(2);
+=======
+        ->orderBy('id', 'desc')
+        ->paginate(5);
+>>>>>>> dev
 
         return view('dashboard.products.variations.index', compact('product', 'variations'));
     }

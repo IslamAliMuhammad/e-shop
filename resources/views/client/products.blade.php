@@ -216,7 +216,17 @@
 
         <!-- Pagination -->
         <div class="w-full flex-c-m flex-w p-t-45">
+<<<<<<< HEAD
             {{ $products->links() }}
+=======
+            {{ $products->appends([
+                'search' => request()->query('search'),
+                'colorId' => request()->query('colorId'),
+                'min' => request()->query('min'),
+                'sortBy' => request()->query('sortBy'),
+                'categoryId' => request()->query('categoryId')
+                ])->links() }}
+>>>>>>> dev
         </div>
     </div>
 </div>

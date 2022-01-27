@@ -72,8 +72,18 @@ class ProductSeeder extends Seeder
              'price' => rand(200, 1000), 'subcategory_id' => rand(1, 15), 'brand_id' => rand(1, 20), 'discount_id' => rand(1, 5)],
         ];
 
+<<<<<<< HEAD
         foreach ($products as $product) {
            Product::create($product);
+=======
+
+        for ($i=0; $i < 10; $i++) {
+            # code...
+            foreach ($products as $product) {
+                Product::create($product);
+             }
+
+>>>>>>> dev
         }
     }
 }

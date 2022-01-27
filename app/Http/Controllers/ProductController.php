@@ -77,7 +77,11 @@ class ProductController extends Controller
             return view('client.products', compact('products', 'colors', 'categories', 'wishlists'));
         }
 
+<<<<<<< HEAD
         $products = Product::withTranslation()->with(['media'])->latest()->paginate(12);
+=======
+        $products = Product::withTranslation()->with(['media'])->orderBy('id', 'desc')->paginate(12);
+>>>>>>> dev
 
         return view('client.products', compact('products', 'colors', 'categories', 'wishlists'));
     }
@@ -138,7 +142,11 @@ class ProductController extends Controller
             }
         }
 
+<<<<<<< HEAD
         $reviews = $product->reviews()->with(['user.media'])->latest()->get();
+=======
+        $reviews = $product->reviews()->with(['user.media'])->orderBy('id', 'desc')->get();
+>>>>>>> dev
 
         return response(view('client.product-details', compact('product', 'relatedProducts', 'reviews')))->cookie('shopping_session', $shoppingSession->id);
     }

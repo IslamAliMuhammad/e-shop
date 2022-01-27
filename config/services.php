@@ -32,7 +32,11 @@ return [
     'github' => [
         'client_id' => env('GITHUB_CLIENT_ID'),
         'client_secret' => env('GITHUB_CLIENT_SECRET'),
+<<<<<<< HEAD
         'redirect' => '/auth/github/callback',
+=======
+        'redirect' => env('GITHUB_REDIRECT'),
+>>>>>>> dev
     ],
 
 ];

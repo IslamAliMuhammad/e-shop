@@ -40,7 +40,11 @@
 
                 <div class="form-group">
                     <label for="lastNameInp">{{ __('Last Name') }}</label>
+<<<<<<< HEAD
                     <input type="text" name="last_name" class="form-control" id="lastNameInp" value="{{ $user->last_name }}" required>
+=======
+                    <input type="text" name="last_name" class="form-control" id="lastNameInp" value="{{ $user->last_name }}">
+>>>>>>> dev
                     @error('last_name')
                         @include('dashboard.partials._validation-alert')
                     @enderror

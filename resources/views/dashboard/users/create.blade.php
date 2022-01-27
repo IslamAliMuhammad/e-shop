@@ -86,6 +86,19 @@
             </div>
             <!-- /.card-body -->
 
+<<<<<<< HEAD
+=======
+            <div class="form-group">
+                <label>{{ __('User Role') }}</label>
+                <select class="custom-select" name="role_name">
+                    <option value="">{{ __('Customer') }}</option>
+                    @foreach ($roles as $role)
+                        <option value="{{ $role->name }}">{{ $role->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+>>>>>>> dev
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">{{ __('Create') }} <i class="fa fa-plus-circle"></i></button>
             </div>

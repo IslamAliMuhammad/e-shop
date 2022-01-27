@@ -11,6 +11,14 @@
             </div>
         @endif
 
+<<<<<<< HEAD
+=======
+        <div class="pb-3 credentials-demo">
+            <p><b>User Name:</b> super.admin@admin.com</p>
+            <p><b>Password: </b> 01143101020</p>
+        </div>
+
+>>>>>>> dev
         <form method="POST" action="{{ route('login') }}">
             @csrf
 

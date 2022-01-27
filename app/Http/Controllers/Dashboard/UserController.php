@@ -8,6 +8,10 @@ use Spatie\Image\Manipulations;
 use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+<<<<<<< HEAD
+=======
+use Spatie\Permission\Models\Permission;
+>>>>>>> dev
 
 class UserController extends Controller
 {
@@ -19,7 +23,10 @@ class UserController extends Controller
     public function index(Request $request)
     {
         //
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
         if(auth()->user()->cannot('read users')) {
             return abort(403);
         }
@@ -34,8 +41,13 @@ class UserController extends Controller
             }]
         ])
             ->with(['media'])
+<<<<<<< HEAD
             ->latest()
             ->paginate(2);
+=======
+            ->orderBy('id', 'desc')
+            ->paginate(5);
+>>>>>>> dev
 
 
 
@@ -137,7 +149,11 @@ class UserController extends Controller
         //
         $request->validate([
             'first_name' => 'required|string|max:255',
+<<<<<<< HEAD
             'last_name' => 'required|string|max:255',
+=======
+            'last_name' => 'nullable|string|max:255',
+>>>>>>> dev
             'email' => 'required|string|max:255|email',
             'role_name' => 'nullable|string|max:255'
         ]);

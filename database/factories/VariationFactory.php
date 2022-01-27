@@ -16,7 +16,11 @@ class VariationFactory extends Factory
     {
         return [
             //
+<<<<<<< HEAD
             'product_id' => $this->faker->numberBetween(1, 6),
+=======
+            'product_id' => $this->faker->numberBetween(1, 60),
+>>>>>>> dev
             'size_id' => $this->faker->numberBetween(1, 25),
             'color_id' => $this->faker->numberBetween(1, 15),
             'sku' => $this->faker->word(),
